@@ -9,11 +9,15 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
+  var mySum = a + b;
+  var message = `The sum of ${a} and ${b} is ${mySum}.`;
+  // console.log([mySum, message]);
 
+  return [mySum, message];
 }
 
 // Here is the test for sum(); uncomment it to run it
-// testSum(4, 7);
+testSum(4, 7); //eslint-disable-line
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -27,11 +31,14 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
+  var myMultiply = a * b;
+  var message = `The product of ${a} and ${b} is ${myMultiply}.`;
 
+  return [myMultiply, message];
 }
 
 // Here is the test for multiply(); uncomment it to run it
-// testMultiply(5,9);
+testMultiply(5,9); //eslint-disable-line
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -46,13 +53,28 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
+
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
+  var sumAB = sum(a, b)[0];
+  var sumABC = sum(c, sumAB)[0];
+ console.log (sumABC);
+  
+  var multiplyAB = multiply(a, b)[0];
+  var multiplyABC = multiply(c, multiplyAB)[0];
+  console.log (multiplyABC)
+
+  var thirdElement = `${a} and ${b} and ${c} sum to ${sumABC}.`;
+
+  var fourthElement = `The product of ${a} and ${b} and ${c} is ${multiplyABC}.`;
+
+  // var myArray =[sumABC + multiplyABC + "4 and 7 and 5 sum to 16." + "The product of 4 and 7 and 5 is 140."]
+  return  [sumABC, multiplyABC, thirdElement, fourthElement];
 
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
