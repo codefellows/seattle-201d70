@@ -35,6 +35,9 @@
 
 ## Lecture
 
+### repl link
+- [class repl](https://repl.it/@rkgallaway/201d70-class-06-object-literals#index.js)
+
 #### Image Usage Rights Matter
 - mentioned in class:  [unsplash.com](unsplash.com)
 

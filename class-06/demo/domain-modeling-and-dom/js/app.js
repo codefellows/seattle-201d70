@@ -17,6 +17,7 @@
 var frankie = {
   name: 'frankie',
   age: 0,
+  myArr: [],
   interests: ['cuddling', 'chasing string', 'catnip'],
   isGoodWithKids: true,
   isGoodWithDogs: false,
