@@ -2,6 +2,9 @@
 
 ## Lecture
 
+### Class Repl
+[constructor repl](https://repl.it/@rkgallaway/201d70-class-07-constructors#index.js)
+
 ### Learning Objectives
 
 As a result of completing Lecture 7 of Code 201, students will:
