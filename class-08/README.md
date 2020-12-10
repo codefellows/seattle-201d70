@@ -2,6 +2,9 @@
 
 ## Today's Schedule
 
+### Repl
+- [2d array repl](https://repl.it/@rkgallaway/201d70-2d-arrays#index.js)
+
 ### Learning Objectives
 
 As a result of completing Lecture 8 of Code 201, students will:
