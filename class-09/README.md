@@ -2,6 +2,9 @@
 
 ## Today's Schedule
 
+### Repl
+- [2daArray](https://repl.it/@rkgallaway/201d70-class-09-2darray-constructors#index.js)
+
 ### Learning Objectives
 
 As a result of completing Lecture 9 of Code 201, students will:
