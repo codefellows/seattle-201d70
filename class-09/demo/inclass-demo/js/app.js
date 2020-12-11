@@ -2,10 +2,6 @@
 
 var containerParent = document.getElementById('container-parent');
 var myForm = document.getElementById('form');
-var impeyanList = document.getElementById('impeyan');
-var blueList = document.getElementById('blue-earred');
-var reevesList = document.getElementById('reeves');
-var pheasantTable = document.getElementById('table');
 var pheasants = [];
 // console.log(impeyanList, blueList, reevesList);
 
