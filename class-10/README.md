@@ -1,5 +1,9 @@
 # JS Debugging and More CSS Layout
 
+### Repls
+- [Debugging - problem](https://repl.it/@rkgallaway/201d70-Class-10-Debugging)
+- [Debugging - solution](https://repl.it/@rkgallaway/201d70-Class-10-Debugging-1#index.js)
+
 ## Learning Objectives
 
 As a result of completing Lecture 10 of Code 201, students will:
