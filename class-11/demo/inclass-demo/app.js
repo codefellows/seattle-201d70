@@ -28,6 +28,12 @@ new Goat('bunny-goat');
 new Goat('cool-goat');
 new Goat('cruisin-goat');
 new Goat('float-your-goat');
+new Goat('goat-out-of-hand');
+new Goat('kissing-goat');
+new Goat('lucky-goat');
+new Goat('sassy-goat');
+new Goat('smiling-goat');
+new Goat('sweater-goat');
 
 // DETERMINE WHICH GOATS GET VIEWED
 // get random index - use getRamdomInt
