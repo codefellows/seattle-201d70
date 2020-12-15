@@ -3,6 +3,7 @@
 // global variables
 // all goats array
 var allGoats = [];
+var renderQueue = [];
 // I can easily adjust my max with this variable
 var maxClicksAllowed = 15;
 var actualClicks = 0;
@@ -44,13 +45,17 @@ function getRandomIndex(max) {
 // with two - we need validation - is goat unique?
 // assign a src, alt, and title to image
 function renderGoats() {
-  var goatOneIndex = getRandomIndex(allGoats.length);
-  var goatTwoIndex = getRandomIndex(allGoats.length);
-  // validation
-  // todays lab will include 3 images!  this won't work!  recommend an array, AND while something is included in the array, perhaps do a thing.  OR  while something is NOT in the array, do a thing.  what will the length of that array be?  maybe this is a renderQueue?  maybe this is where the three image indexes about to be rendered live?  maybe a seperate helper function to populate that array - doesn't have to be
-  while (goatOneIndex === goatTwoIndex) {
-    goatTwoIndex = getRandomIndex(allGoats.length);
+  while (renderQueue.length < 4) {
+    var tempIndex = getRandomIndex(allGoats.length);
+    while (renderQueue.includes(tempIndex)) {
+      tempIndex = getRandomIndex(allGoats.length);
+    }
+    renderQueue.push(tempIndex);
   }
+  console.log(renderQueue);
+
+  var goatOneIndex = renderQueue.pop();
+  var goatTwoIndex = renderQueue.pop();
 
   // assign goat info
   imageOneElement.src = allGoats[goatOneIndex].src;
@@ -90,15 +95,17 @@ function handleClick(event) {
     // #1. remove eventListener
     myContainer.removeEventListener('click', handleClick);
     // #2. show results - render one list with string including name, views, and votes
-    for (var j = 0; j< allGoats.length; j++){
-      // create element
-      var liElement = document.createElement('li');
-      // give it content
-      liElement.textContent = `${allGoats[j].name} was viewed ${allGoats[j].views} times and clicked ${allGoats[j].votes} times`;
-      //append it to the DOM
-      resultsList.appendChild(liElement);
 
-    }
+    renderChart();
+    // for (var j = 0; j < allGoats.length; j++) {
+    //   // create element
+    //   var liElement = document.createElement('li');
+    //   // give it content
+    //   liElement.textContent = `${allGoats[j].name} was viewed ${allGoats[j].views} times and clicked ${allGoats[j].votes} times`;
+    //   //append it to the DOM
+    //   resultsList.appendChild(liElement);
+
+    // }
   }
 }
 
@@ -106,6 +113,59 @@ function handleClick(event) {
 //executable code
 // call a function that assigns the img srcs
 renderGoats();
+
+// chart info needed:
+// 1. array of names
+// 2. array of votes/clicks
+// 3. array of views
+
+function renderChart(){
+  var namesArray = [];
+  var votesArray = [];
+  var viewsArray = [];
+
+  for (var i = 0; i < allGoats.length; i++){
+    namesArray.push(allGoats[i].name);
+    votesArray.push(allGoats[i].votes);
+    viewsArray.push(allGoats[i].views);
+  }
+
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var dataObject = {
+    type: 'bar',
+    data: {
+      labels: namesArray,
+      datasets: [{
+        label: 'Number of Votes',
+        data: votesArray,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 5
+      },
+      {
+        label: 'Number of Views',
+        data: viewsArray,
+        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: false,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  };
+  var myChart = new Chart(ctx, dataObject); //eslint-disable-line
+
+}
+//////////////////// chart stuff!
+
 
 // event listner attached to the container
 myContainer.addEventListener('click', handleClick);

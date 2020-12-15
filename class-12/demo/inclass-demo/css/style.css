@@ -28,3 +28,10 @@ ul {
   text-align: center;
   margin-top: 25px;
 }
+
+
+canvas {
+  width: 960px;
+  height: 400px;
+  margin: auto;
+}
