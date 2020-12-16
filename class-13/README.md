@@ -1,5 +1,10 @@
 ## Lecture
 
+### Repls from class
+
+- [String manipulation fun](https://repl.it/@rkgallaway/string-manipulation#index.js)
+- [Local Storage](https://repl.it/@rkgallaway/201d70-class-13-local-storage)
+
 ### Learning Objectives
 
 As a result of completing Lecture 13 of Code 201, students will:
