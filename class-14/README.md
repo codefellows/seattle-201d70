@@ -3,6 +3,11 @@
 
 ## Lecture
 
+### Class Repls - identifying ways 
+
+- [Fizz Buzz Question with inclass solution](https://repl.it/@rkgallaway/201d70-class-14-fizz-buzz)
+- [Fizz Buzz Other Solutions](https://repl.it/@rkgallaway/201d70-class-14-fizz-buzz-solutions)
+
 ### Learning Objectives
 
 As a result of completing Lecture 14 of Code 201, students will:
