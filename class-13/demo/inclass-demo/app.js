@@ -24,17 +24,29 @@ function Goat(name, src = 'jpg') {
   allGoats.push(this);
 }
 
-// instantiations!!
-new Goat('bunny-goat');
-new Goat('cool-goat');
-new Goat('cruisin-goat');
-new Goat('float-your-goat');
-new Goat('goat-out-of-hand');
-new Goat('kissing-goat');
-new Goat('lucky-goat');
-new Goat('sassy-goat');
-new Goat('smiling-goat');
-new Goat('sweater-goat');
+Goat.prototype.logger = function (){
+  console.log(this);
+};
+
+// all reference to goat instances is lost, AND we just have objects
+var retrievedGoats = localStorage.getItem('goats');
+if(retrievedGoats){
+  allGoats = JSON.parse(retrievedGoats);
+} else {
+  // instantiations!!
+  new Goat('bunny-goat');
+  new Goat('cool-goat');
+  new Goat('cruisin-goat');
+  new Goat('float-your-goat');
+  new Goat('goat-out-of-hand');
+  new Goat('kissing-goat');
+  new Goat('lucky-goat');
+  new Goat('sassy-goat');
+  new Goat('smiling-goat');
+  new Goat('sweater-goat');
+}
+console.log(allGoats);
+
 
 // DETERMINE WHICH GOATS GET VIEWED
 // get random index - use getRamdomInt
@@ -52,7 +64,6 @@ function renderGoats() {
     }
     renderQueue.push(tempIndex);
   }
-  console.log(renderQueue);
 
   var goatOneIndex = renderQueue.pop();
   var goatTwoIndex = renderQueue.pop();
@@ -78,7 +89,6 @@ function handleClick(event) {
   // console.log(event);
   actualClicks++;
   var clickedGoat = event.target.title;
-  console.log(clickedGoat);
 
   //keep track of WHICH image and number of clicks. increment the correct clicks/vote/like property.
   for (var i = 0; i < allGoats.length; i++) {
@@ -97,27 +107,17 @@ function handleClick(event) {
     // #2. show results - render one list with string including name, views, and votes
 
     renderChart();
-    // for (var j = 0; j < allGoats.length; j++) {
-    //   // create element
-    //   var liElement = document.createElement('li');
-    //   // give it content
-    //   liElement.textContent = `${allGoats[j].name} was viewed ${allGoats[j].views} times and clicked ${allGoats[j].votes} times`;
-    //   //append it to the DOM
-    //   resultsList.appendChild(liElement);
-
-    // }
+    // #3. save to local storage to persist completed datasets
+    var stringifiedGoats = JSON.stringify(allGoats);
+    localStorage.setItem('goats', stringifiedGoats);
   }
 }
 
 
 //executable code
 // call a function that assigns the img srcs
+// ? handle instatiations here?
 renderGoats();
-
-// chart info needed:
-// 1. array of names
-// 2. array of votes/clicks
-// 3. array of views
 
 function renderChart(){
   var namesArray = [];
@@ -164,8 +164,6 @@ function renderChart(){
   var myChart = new Chart(ctx, dataObject); //eslint-disable-line
 
 }
-//////////////////// chart stuff!
-
 
 // event listner attached to the container
 myContainer.addEventListener('click', handleClick);
