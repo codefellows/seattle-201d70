@@ -3,6 +3,8 @@
 <a id="top"></a>
 
 ## Lecture
+### link shared today
+- [Googles Psych Safety form](https://docs.google.com/document/d/1eTH0ppI4dBLj60rJ9pM5hidqj14wv6MbkMXCBUSSaVo/edit)
 
 ## Today's Schedule
 
